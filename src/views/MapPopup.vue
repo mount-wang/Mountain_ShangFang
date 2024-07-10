@@ -1,0 +1,87 @@
+<template>
+  <div>
+    <div id="popup"
+         class="ol-popup">
+      <a href="#"
+         id="popup-closer"
+         class="ol-popup-closer"></a>
+      <div id="popup-content"></div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'MapPopup',
+  mounted() {},
+}
+</script>
+
+<style scoped>
+body,
+html {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  width: 400px; /* 调整弹窗的宽度 */
+  max-height: 60vh; /* 最大高度 */
+  overflow-y: auto; /* 滚动条 */
+}
+
+.ol-popup:after,
+.ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+}
+
+.ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
+
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+
+.ol-popup-closer:after {
+  content: '✕';
+}
+
+#popup-content {
+  font-size: 14px;
+  font-family: '微软雅黑';
+}
+
+#popup-content .markerInfo {
+  font-weight: bold;
+}
+</style>
