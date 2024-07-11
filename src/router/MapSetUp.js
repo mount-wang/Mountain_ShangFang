@@ -85,9 +85,9 @@ function initMap() {
     {
       coordinates: [115.816, 39.664],
       info: {
-        title: "北京上方山国家森林公园",
+        title: "北京上方山国家森林公园（东门）",
         titleURL: "https://baike.baidu.com/item/%E5%8C%97%E4%BA%AC%E4%B8%8A%E6%96%B9%E5%B1%B1%E5%9B%BD%E5%AE%B6%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD/2329569",
-        text: "北京上方山国家森林公园位于北京市房山区韩村河镇，是一座集自然、佛教和溶洞为一体的综合性国家森林公园。",
+        text: "北京上方山国家森林公园（东门）位于北京市房山区韩村河镇，是游客探访这片宁静自然景观的主要入口。上方山公园作为一座集自然、佛教和溶洞为一体的综合性国家森林公园，从东门进入，可以体验爬山、云梯等户外活动",
         imgURL: require("@/assets/东门.png"),
         iconURL: require("@/assets/东门.png"),
         iconScale: 0.08,
@@ -98,9 +98,9 @@ function initMap() {
     {
       coordinates: [115.8208, 39.6695],
       info: {
-        title: "发汗岭",
+        title: "筏（发）汗岭",
         titleURL: "",
-        text: "",
+        text: "筏（发）汗岭的名字来源于攀登该岭需要较大的体力消耗，使人发汗。登上发汗岭不仅可以体验到挑战自我的乐趣，还能在山頂享受周围自然景观的视觉盛宴。站在发汗岭上，可以俯瞰整个上方山国家森林公园的美丽景色，包括清晰的峰峦轮廓和茂密的原始次生林，这种体验会让人忘记登山的劳累",
         imgURL: require("@/assets/发汗岭.jpg"),
         iconURL: require("@/assets/发汗岭.jpg"),
         iconScale: 0.08,
@@ -113,7 +113,7 @@ function initMap() {
       info: {
         title: "兜率寺",
         titleURL: "",
-        text: "兜率寺是一座著名的佛教寺庙，历史悠久。",
+        text: "兜率寺的由来可以追溯到明代，它曾是著名的佛教僧侣修行和学习的地方。天王殿横匾【兜率寺】为一诚法师所题；迎面殿中供弥勒菩萨，弥勒菩萨像后供韦驮；两旁供四大天王：东方持国天王，南方增长天王，西方广目天，北方多闻天王；出天王殿，院落中央为大雄宝殿，横匾「佛光普照」",
         imgURL: require("@/assets/兜率寺.jpg"),
         iconURL: require("@/assets/兜率寺.jpg"),
         iconScale: 0.08,
@@ -126,7 +126,7 @@ function initMap() {
       info: {
         title: "槐树王",
         titleURL: "",
-        text: "",
+        text: "吕祖阁南边不远处，是通往云水洞的山道，它也是游客必经的一条山道，在这条山道上，有一棵冠大荫浓、青翠茁壮的古槐矗立在路中央，它是目前上方山发现海拔最高，树干最长，胸径最粗的古槐，树高31米，胸径1.24米，胸围4米，为一级古树，树龄1100年",
         imgURL: require("@/assets/槐树王.jpg"),
         iconURL: require("@/assets/槐树王.jpg"),
         iconScale: 0.08,
@@ -139,7 +139,7 @@ function initMap() {
       info: {
         title: "钟楼",
         titleURL: "",
-        text: "",
+        text: "钟楼是位于北京上方山国家森林公园内的一个标志性建筑，它不仅具有装饰性作用，还是公园内的一个重要文化景观。钟楼通常建在高处，以便于敲响的钟声能够远传，提醒人们时间的流逝",
         imgURL: require("@/assets/钟楼.png"),
         iconURL: require("@/assets/钟楼.png"),
         iconScale: 0.08,
@@ -152,7 +152,7 @@ function initMap() {
       info: {
         title: "骆驼峰",
         titleURL: "",
-        text: "",
+        text: "因其外形酷似一只伏地休息的骆驼而得名。骆驼峰的山体由若干个大小不一的岩石组成，这些岩石的排列和形状巧妙地模拟了骆驼的轮廓，包括驼峰和四肢在内的细节，都栩栩如生，令人赞叹大自然的鬼斧神工",
         imgURL: require("@/assets/骆驼峰.jpg"),
         iconURL: require("@/assets/骆驼峰.jpg"),
         iconScale: 0.08,
@@ -165,7 +165,7 @@ function initMap() {
       info: {
         title: "藏经阁",
         titleURL: "",
-        text: "",
+        text: "坐北朝南，正殿三间，为两层楼阁，正殿两侧各有夹殿三间。藏经阁的建筑风格保持了传统的汉式佛教建筑特点。除了作为佛教经典的收藏之所，藏经阁也是游客了解佛教文化的重要地点。在这里，人们不仅可以参观和阅读到各种佛教经典，还可以感受到佛教的宁静与祥和，欣赏到上方山的自然美景",
         imgURL: require("@/assets/藏经阁.png"),
         iconURL: require("@/assets/藏经阁.png"),
         iconScale: 0.08,
@@ -178,7 +178,7 @@ function initMap() {
       info: {
         title: "文殊殿",
         titleURL: "",
-        text: "文殊殿是一座佛教寺庙，供奉文殊菩萨。",
+        text: "文殊殿为兜率寺西第一大寺，在上方诸寺中规模仅次于兜率寺，与接待庵、地藏殿、吕祖阁相匹。殿外有古柏数株，古藤穿柏腹而生，肌理相连，枝叶各异，乃上方山一大奇观，名为一龙缠九柏。文殊殿专门供奉佛教中的文殊菩萨。文殊菩萨在佛教中代表着智慧和辩才，是学子们祈愿学业有成、增长智慧的重要对象，因此备受尊敬",
         imgURL: require("@/assets/文殊殿.jpg"),
         iconURL: require("@/assets/文殊殿.jpg"),
         iconScale: 0.06,
@@ -191,7 +191,7 @@ function initMap() {
       info: {
         title: "云水洞",
         titleURL: "",
-        text: "",
+        text: "上方山云水洞，是中国北方最大的溶洞之一，享有“幽燕奥室”之美誉。洞内深达六百多米，自然形成了六个气势恢宏的大厅，每个大厅都各具特色，美不胜收",
         imgURL: require("@/assets/云水洞.png"),
         iconURL: require("@/assets/云水洞.png"),
         iconScale: 0.06,
@@ -204,7 +204,7 @@ function initMap() {
       info: {
         title: "柏树王",
         titleURL: "",
-        text: "",
+        text: "柏树王位于上方山回龙峰下、海拔500米的吕祖阁院内。树高24米，干围达6米，相传种植于晋代，距今已有1600多年，号称北京郊区最粗大的一株大柏树。有人为其作诗云：“天尊驾前通灵草，偷得浮生堕凡轮。吕祖阁中经寒暑，风流千载定乾坤",
         imgURL: require("@/assets/柏树王.jpg"),
         iconURL: require("@/assets/柏树王.jpg"),
         iconScale: 0.06,
@@ -217,7 +217,7 @@ function initMap() {
       info: {
         title: "云梯",
         titleURL: "",
-        text: "",
+        text: "云梯紧邻圣水峪，是登上方山必经的险道。云梯由明代司礼监冯保所建，共有262级，沿路磐石为级，旁边配有索道供人攀扶。攀登云梯仿佛置身悬空之感，顶端有一处名为云梯庵的庵堂，站在此处可远眺群山，视野极好",
         imgURL: require("@/assets/云梯.png"),
         iconURL: require("@/assets/云梯.png"),
         iconScale: 0.1,
@@ -230,7 +230,7 @@ function initMap() {
       info: {
         title: "塔院",
         titleURL: "",
-        text: "塔院是一片古老的佛塔群，充满历史气息。",
+        text: "塔院的历史可以追溯到东汉时期，据说这里曾是印度高僧华严宗祖师慧晟大师驻锡之地，因此有着深厚的佛教文化底蕴。塔院的主要建筑包括七级密檐砖塔、方形石基和六角形石幢。这些建筑的结构精致，雕刻细腻，展现了明代的建筑风格和工艺水平。特别是七级密檐砖塔，其造型独特，古朴典雅，是塔院的核心建筑",
         imgURL: require("@/assets/塔院.jpg"),
         iconURL: require("@/assets/塔院.jpg"),
         iconScale: 0.08,
@@ -243,7 +243,7 @@ function initMap() {
       info: {
         title: "华严洞",
         titleURL: "",
-        text: "华严洞是一处天然溶洞，景色壮观。",
+        text: "华严洞的开发可追溯到东汉光武十年，当时华严祖师慧晟大师选择在上方山天然洞穴修行，称之为“华严洞”。这里不仅是佛教华严宗的发源地之一，还是历代高僧修行和传承佛法的重要场所",
         imgURL: require("@/assets/华严洞.jpg"),
         iconURL: require("@/assets/华严洞.jpg"),
         iconScale: 0.008,
