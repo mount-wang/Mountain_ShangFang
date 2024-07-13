@@ -10,14 +10,14 @@ import { fromLonLat, transformExtent } from 'ol/proj'
 import { defaults as defaultInteractions, DragPan } from 'ol/interaction'
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
-import { Circle as CircleStyle, Style, Icon } from 'ol/style';
+import { Circle as CircleStyle, Style, Icon, Stroke, Fill } from 'ol/style';
 
 const defaultZoom = 14
 const defaultCenter = [115.8252, 39.673]
 const defaultRotation = 0
 const defaultExtent = transformExtent([115.79, 39.66, 115.84, 39.685], 'EPSG:4326', 'EPSG:3857')
 
-class RotateNorthControl extends Control {
+export class RotateNorthControl extends Control {
   constructor(opt_options) {
     const options = opt_options || {}
     const button = document.createElement('button')
@@ -39,7 +39,7 @@ class RotateNorthControl extends Control {
   }
 }
 
-function initMap() {
+export function initMap() {
   const map = new Map({
     target: 'ShangFang-Mountain',
     controls: control.defaults({ attribution: true, zoom: true, rotate: true }).extend([new FullScreen()]),
@@ -80,6 +80,62 @@ function initMap() {
     ]
   })
   map.addControl(overviewMap)
+  // 添加样式和边框颜色
+  const borderStyle = new Style({
+    stroke: new Stroke({
+      color: 'red',
+      width: 2
+    }),
+    fill: new Fill({
+      color: 'rgba(255, 255, 255, 0.3)'
+    })
+  });
+  // 定义函数来设置边框样式
+  function setBorderStyle(collapsed) {
+    const element = document.querySelector('.ol-overviewmap');
+    if (element) {
+      if (collapsed) {
+        element.style.border = 'none';  // 收起时没有边框
+      } else {
+        element.style.border = '2px solid red';  // 展开时设置边框
+      }
+    }
+  }
+  // 监听鹰眼框展开和收起事件
+  overviewMap.on('change:collapsed', (event) => {
+    const collapsed = event.target.getCollapsed();
+    setBorderStyle(collapsed);
+  });
+  // 初始状态设置边框
+  setBorderStyle(overviewMap.getCollapsed());
+
+  map.on('pointermove', function (e) {
+    const pixel = map.getEventPixel(e.originalEvent);
+    const hit = map.hasFeatureAtPixel(pixel);
+    map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+
+    if (hit) {
+      const feature = map.forEachFeatureAtPixel(pixel, function (feature) {
+        return feature;
+      });
+
+      if (feature) {
+        const info = feature.get('info');
+        if (info) {
+          // 创建一个提示框来显示图标名称
+          const tooltip = document.getElementById('tooltip');
+          tooltip.innerHTML = info.title; // 显示名称
+          tooltip.style.left = e.originalEvent.pageX + 'px';
+          tooltip.style.top = e.originalEvent.pageY + 'px';
+          tooltip.style.display = 'block'; // 显示提示框
+        }
+      }
+    } else {
+      // 隐藏提示框
+      const tooltip = document.getElementById('tooltip');
+      tooltip.style.display = 'none';
+    }
+  });
 
   const pointsData = [
     {
@@ -253,20 +309,29 @@ function initMap() {
     }
   ];
 
-  function createCircularImage(url, diameter) {
+  function createCircularImage(url, diameter, borderWidth = 5, borderColor = 'rgba(255, 0, 0, 0.8)') {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
     const image = new Image();
-  
+
     canvas.width = diameter;
     canvas.height = diameter;
-  
+
     return new Promise((resolve) => {
       image.onload = () => {
+        //绘制圆形容器
         context.beginPath();
         context.arc(diameter / 2, diameter / 2, diameter / 2, 0, 2 * Math.PI);
         context.clip();
         context.drawImage(image, 0, 0, diameter, diameter);
+
+        //绘制边框
+        context.lineWidth = borderWidth;
+        context.strokeStyle = borderColor;
+        context.beginPath();
+        context.arc(diameter / 2, diameter / 2, diameter / 2 - borderWidth / 2, 0, 2 * Math.PI);
+        context.stroke();
+
         resolve(canvas.toDataURL());
       };
       image.src = url;
@@ -274,7 +339,7 @@ function initMap() {
   }
 
   async function createFeatureStyle(iconURL) {
-    const circularImageURL = await createCircularImage(iconURL, 50);
+    const circularImageURL = await createCircularImage(iconURL, 50, 2, 'rgba(255, 0, 0, 0.8)');
     return new Style({
       image: new Icon({
         src: circularImageURL,
@@ -307,7 +372,7 @@ function initMap() {
   return map;
 }
 
-function setupPopup(map) {
+export function setupPopup(map) {
   const container = document.getElementById('popup')
   const content = document.getElementById('popup-content')
   const closer = document.getElementById('popup-closer')
@@ -355,12 +420,12 @@ function setupPopup(map) {
     elementA.href = info.titleURL;
     setInnerText(elementA, info.title);
     content.appendChild(elementA);
-    
+
     const elementDiv = document.createElement('div');
     elementDiv.className = "markerText";
     setInnerText(elementDiv, info.text);
     content.appendChild(elementDiv);
-    
+
     const elementImg = document.createElement('img');
     elementImg.src = info.imgURL;
     elementImg.style.width = info.imgWidth;
@@ -376,4 +441,3 @@ function setupPopup(map) {
     }
   }
 }
-export { initMap, RotateNorthControl, setupPopup }

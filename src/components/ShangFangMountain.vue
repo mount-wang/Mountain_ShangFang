@@ -3,6 +3,9 @@
     <div class="map-container">
       <div id="ShangFang-Mountain"
            class="ShangFang-Mountain" />
+      <div id="tooltip"
+           class="tooltip"
+           style="display: none;"></div>
     </div>
   </div>
 </template>
@@ -20,7 +23,7 @@ export default {
     this.$nextTick(() => {
       setupPopup(map)
     })
-    
+
     window.addEventListener('resize', () => map.updateSize())
   },
 }
@@ -46,5 +49,15 @@ export default {
 .ol-touch,
 .rotate-north {
   top: 80px;
+}
+
+.tooltip {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 1000;
 }
 </style>
